@@ -1,11 +1,11 @@
 <package>
 	<name>droneObstacleAvoider</name>
-	<version>1.0.0</version>
+	<version>1.0.1</version>
 	<description>
     		This package is droneObstacleAvoider.
 	</description>
-	<author email="rafael.gmanas@alumnos.upm.es">Rafael Gómez-Jordana</author>
-	<maintainer email="rafael.gmanas@alumnos.upm.es">Rafael Gómez-Jordana</maintainer>
+	<author email="rafagjordana@gmail.com">Rafael Gómez-Jordana</author>
+	<maintainer email="rafagjordana@gmail.com">Rafael Gómez-Jordana</maintainer>
   	<license>BSD</license>
 	<url>http://ros.org/wiki/droneObstacleAvoider</url>
 
