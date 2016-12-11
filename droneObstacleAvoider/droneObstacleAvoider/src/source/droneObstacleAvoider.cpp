@@ -1,6 +1,5 @@
 #include "droneObstacleAvoider.h"
 
-
 DroneObstacleAvoider::DroneObstacleAvoider(int idDrone, const std::string &stackPath_in) :
     ultrasonicEstimator(idDrone, stackPath_in)
 {
@@ -32,7 +31,6 @@ void DroneObstacleAvoider::enable(bool e)
 {
     if (e && SYSTEM_MOUNTED && !safety) enabled = e;
     else (enabled = false);
-    //ROS_INFO("enabled = %d",enabled);
 }
 
 bool DroneObstacleAvoider::run(double* roll_, double* pitch_)
@@ -51,7 +49,6 @@ bool DroneObstacleAvoider::run(double* roll_, double* pitch_)
             roll_cmd  -= action_command*sin(theta);
         }
     }
-    //DUDA TIME GAP
 
     if (pitch_cmd > MAX_OUTPUT) pitch_cmd = MAX_OUTPUT;
     if (pitch_cmd < -MAX_OUTPUT) pitch_cmd = -MAX_OUTPUT;
@@ -59,7 +56,6 @@ bool DroneObstacleAvoider::run(double* roll_, double* pitch_)
     if (roll_cmd > MAX_OUTPUT) roll_cmd = MAX_OUTPUT;
     if (roll_cmd < -MAX_OUTPUT) roll_cmd = -MAX_OUTPUT;
 
-    //ROS_INFO("Ultrasonic distance = %f",ultrasonicEstimator.getRange(0));
     ROS_INFO("Pitch command = %lf!", pitch_cmd);
     ROS_INFO("Roll command  = %lf!",  roll_cmd);
 
@@ -119,28 +115,5 @@ void DroneObstacleAvoider::setDroneMeasurementGroundOpticalFlow(float vx_mps, fl
 
 float DroneObstacleAvoider::getRange(int i)
 {
-    //Function used for debugging purposes
     return ultrasonicEstimator.getRange(i);
 }
-
-bool DroneObstacleAvoider::stop()
-{
-    return true;
-}
-
-bool DroneObstacleAvoider::close()
-{
-    stop();
-    return true;
-}
-
-bool DroneObstacleAvoider::reset()
-{
-    return true;
-}
-
-bool DroneObstacleAvoider::start()
-{
-    return true;
-}
-

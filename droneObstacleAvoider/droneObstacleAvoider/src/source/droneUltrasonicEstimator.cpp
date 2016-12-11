@@ -4,7 +4,6 @@
 
 UltrasonicEstimator::UltrasonicEstimator(int idDrone, const std::string &stackPath_in){
 
-
     try {
             XMLFileReader my_xml_reader(stackPath_in+"configs/drone"+cvg_int_to_string(idDrone)+"/midlevel_autopilot.xml");
 
@@ -29,7 +28,7 @@ void UltrasonicEstimator::filter(float velocity_x, float velocity_y, droneMsgsRO
     unfiltered_range[measure.id] = measure.range.data/100.0;
 
     float theta = sensorAngle[measure.id];
-    float v = velocity_x*cos(theta)+velocity_y*sin(theta);  //Solo componente en direccion del sensor ?  //sería +sin o -sin? Creo que -
+    float v = velocity_x*cos(theta)+velocity_y*sin(theta);
     float t = 1/measure.freq.data + FEEDFORWARD;
 
     //Filtro de Kalman sobre rango
